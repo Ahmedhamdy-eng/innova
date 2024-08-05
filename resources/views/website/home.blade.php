@@ -18,7 +18,7 @@
                         <div class="swiper-slide">
                             <div class="flat-slider">
                                 <div class="overlay-slider style"></div>
-                                <div class="sld-img"><img src="{{ $slider->getFirstMediaUrl("attachment") }}" alt="">
+                                <div class="sld-img"><img src="{{ $slider?->getFirstMediaUrl("attachment") }}" alt="">
                                 </div>
                                 <div class="content">
                                     <div class="heading">
@@ -53,7 +53,7 @@
                 <div class="col-lg-6 col-md-5 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="media-box">
                         <div class="mediafull">
-                            <img src="{{ $partner->getFirstMediaUrl('image')}}" alt="images">
+                            <img src="{{ $partner?->getFirstMediaUrl('image')}}" alt="images">
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <div class="img-title50 wow fadeInDown" data-wow-delay="100ms" data-wow-duration="1100ms"
                          style="padding-top: 10px;">
                         <a href="https://www.octapharma.com/">
-                            <img src="{{ $partner->getFirstMediaUrl('logo')}}" alt="images">
+                            <img src="{{ $partner?->getFirstMediaUrl('logo')}}" alt="images">
                         </a>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                                          data-wow-delay="0ms" data-wow-duration="1100ms">
                                         <div class="slogan-logo" style="height: 100%;">
                                             <a href="{{route("product.show", $product->id)}}">
-                                                <img src=" {{ $product->getFirstMediaUrl('image') }}" alt="images"
+                                                <img src=" {{ $product?->getFirstMediaUrl('image') }}" alt="images"
                                                      style="height: 85%;">
                                             </a>
                                             <div class="content-white">
@@ -152,7 +152,7 @@
                 <div class="col-lg-2 col-md-6">
                     <div class="team-box grid-post wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="media">
-                            <img src="{{$teamMember->getFirstMediaUrl('member')}}" alt="images">
+                            <img src="{{$teamMember?->getFirstMediaUrl('member')}}" alt="images">
                         </div>
                         <div class="content">
                             <div class="sub-title-content">{{$teamMember->position}}</div>

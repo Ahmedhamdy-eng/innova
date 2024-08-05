@@ -43,7 +43,7 @@
                 <div class="col-lg-4 col-md-4  wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="media-box">
                         <div class="mediafull">
-                            <img class="img100" src="{{ $vision->getFirstMediaUrl('image')}}" alt="images">
+                            <img class="img100" src="{{ $vision?->getFirstMediaUrl('image')}}" alt="images">
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                 <div class="col-lg-4 col-md-4  wow fadeInDown" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="media-box">
                         <div class="mediafull">
-                            <img class="img100" src="{{ $mission->getFirstMediaUrl('image')}}" alt="images">
+                            <img class="img100" src="{{ $mission?->getFirstMediaUrl('image')}}" alt="images">
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                 <div class="col-lg-4 col-md-4  wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="media-box">
                         <div class="mediafull">
-                            <img class="img100" src="{{ $companyStrategy->getFirstMediaUrl('image')}}"
+                            <img class="img100" src="{{ $companyStrategy?->getFirstMediaUrl('image')}}"
                                  alt="images">
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                 <div class="col-lg-4 col-md-4  wow fadeInDown" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="media-box">
                         <div class="mediafull">
-                            <img class="img100" src="{{ $ourStrategicStrength->getFirstMediaUrl('image')}}" alt="images">
+                            <img class="img100" src="{{ $ourStrategicStrength?->getFirstMediaUrl('image')}}" alt="images">
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                 <div class="col-lg-4 col-md-4  wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="media-box">
                         <div class="mediafull">
-                            <img class="img100" src="{{ $ourValue->getFirstMediaUrl('image')}}" alt="images">
+                            <img class="img100" src="{{ $ourValue?->getFirstMediaUrl('image')}}" alt="images">
                         </div>
                     </div>
                 </div>

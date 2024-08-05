@@ -24,7 +24,7 @@
 
                 <div class="col-lg-5 col-md-5  wow fadeInRight" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="media">
-                        <img src="{{$product->getFirstMediaUrl('image')}}" alt="images">
+                        <img src="{{$product?->getFirstMediaUrl('image')}}" alt="images">
                     </div>
                 </div>
                 <div class="col-lg-7  wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms">

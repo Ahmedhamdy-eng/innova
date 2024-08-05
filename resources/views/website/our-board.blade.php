@@ -31,7 +31,7 @@
                         <div class="col-lg-4 col-md-4  wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                             <div class="media-box">
                                 <div class="mediafull">
-                                    <img class="img100" src="{{$teamMember->getFirstMediaUrl('member')}}" alt="images">
+                                    <img class="img100" src="{{$teamMember?->getFirstMediaUrl('member')}}" alt="images">
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                         <div class="col-lg-4 col-md-4  wow fadeInDown" data-wow-delay="100ms" data-wow-duration="800ms">
                             <div class="media-box">
                                 <div class="mediafull">
-                                    <img class="img100" src="{{$teamMember->getFirstMediaUrl('member')}}" alt="images">
+                                    <img class="img100" src="{{$teamMember?->getFirstMediaUrl('member')}}" alt="images">
                                 </div>
                             </div>
                         </div>

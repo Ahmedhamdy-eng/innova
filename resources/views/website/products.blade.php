@@ -29,7 +29,7 @@
                         <div class="grid-post style-post">
                             <div class="img-box">
                                 <div class="media">
-                                    <img src="{{$product->getFirstMediaUrl('image')}}" alt="images">
+                                    <img src="{{$product?->getFirstMediaUrl('image')}}" alt="images">
                                 </div>
                             </div>
                             <div class="content">

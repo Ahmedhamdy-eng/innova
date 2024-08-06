@@ -33,11 +33,11 @@
                                  data-wow-duration="800ms"></div>
 
                             <div class="title-contact wow lightSpeedIn" data-wow-delay="100ms"
-                                 data-wow-duration="800ms">Cairo, <span class="text-color-3">Egypt</span></div>
+                                 data-wow-duration="800ms">{{ $contact?->city }} <span class="text-color-3">{{ $contact?->country }}</span></div>
                             <div class="row wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms">
                                 <div class="col-md-12">
                                     <p><span class="text-color-3">{{$contact?->description}}</span></p>
-                                    <p>{{$contact?->address . $contact?->country . $contact?->city}}</p>
+                                    <p>{{$contact?->address}}</p>
                                 </div>
                             </div>
                             <div class="row wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">

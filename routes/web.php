@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $sliders = Blog::where("type", 'slider')->get();
+    $blogs = Blog::query()->whereIn("type", ['news', 'video'])->orderBy('sort', "asc")->limit(3)->get();
     $partner = Partner::query()->first();
     $products = Product::query()->take(8)->get();
     $teamMembers = Member::query()->take(5)->orderBy('sort', 'ASC')->get();
@@ -39,6 +40,7 @@ Route::get('/', function () {
         'partner' => $partner,
         'products' => $products,
         'teamMembers' => $teamMembers,
+        'blogs' => $blogs,
     ]);
 })->name('home');
 

@@ -60,7 +60,7 @@
                 <div class="col-lg-6 col-md-7 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="800ms">
                     <div class="trusted-heading-without-marge wow fadeInUp" data-wow-delay="0ms"
                          data-wow-duration="1100ms">
-                        <h2 class="tf-title"> {{ $partner?->name }}  <span class="text-color-3 style-title"> </span></h2>
+                        <h2 class="tf-title"> {{ $partner?->name }} <span class="text-color-3 style-title"> </span></h2>
                     </div>
                     <!-- <h3 class="text-color-3">At Innova,</h3> -->
                     <p>{{ $partner?->description}}
@@ -92,7 +92,7 @@
                         <div class="swiper-container carousel-4">
                             <div class="swiper-wrapper">
 
-                            @foreach($products as $product)
+                                @foreach($products as $product)
                                     <div class="swiper-slide wow zoomInLeft" style="width: 180px;height: 270px;"
                                          data-wow-delay="0ms" data-wow-duration="1100ms">
                                         <div class="slogan-logo" style="height: 100%;">
@@ -106,7 +106,7 @@
                                         </div>
                                     </div>
 
-                            @endforeach
+                                @endforeach
 
                             </div>
                         </div>
@@ -125,7 +125,39 @@
                         <h2 class="tf-title">Company <span class="text-color-3 style-title">Blog</span></h2>
                     </div>
                 </div>
+                @foreach($blogs as $index => $blog)
+                    @if($blog->type == "news")
+                        <div class="col-lg-4 col-md-4">
+                            <div class="grid-post">
+                                <div class="media height-150 wow fadeInUp" data-wow-delay="0ms"
+                                     data-wow-duration="1500ms"
+                                     style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                    <img src="{{$blog?->getFirstMediaUrl('attachment')}}" alt="images">
+                                </div>
+                                <div class="content">
+                                    <h3 class="title-item"><a href="blog-details.html">{{$blog?->title}}</a></h3>
+                                    <p>{{$blog?->content}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
 
+                    @if($blog->type == "video")
+
+                            <div class="col-lg-4 col-md-4">
+                                <div class="grid-post">
+                                    <video controls>
+                                        <source src="{{$blog?->getFirstMediaUrl('attachment')}}" type="{{ optional(optional($blog->getMedia("attachment"))[0])->mime_type}}">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="content">
+                                        <h3 class="title-item"><a href="blog-details.html">{{$blog?->title}}</a></h3>
+                                        <p>{{ mb_strimwidth($blog?->content,0, 50, "...")}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                @endforeach
             </div>
         </div>
     </section>
@@ -149,17 +181,19 @@
                 </div>
 
                 @foreach($teamMembers as $index => $teamMember)
-                <div class="col-lg-2 col-md-6">
-                    <div class="team-box grid-post wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="media">
-                            <img src="{{$teamMember?->getFirstMediaUrl('member')}}" alt="images">
-                        </div>
-                        <div class="content">
-                            <div class="sub-title-content">{{$teamMember?->position}}</div>
-                            <h3><a href="{{ route('our-board', ['section' => $teamMember?->sort ])}}">{{$teamMember?->name}}</a></h3>
+                    <div class="col-lg-2 col-md-6">
+                        <div class="team-box grid-post wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="media">
+                                <img src="{{$teamMember?->getFirstMediaUrl('member')}}" alt="images">
+                            </div>
+                            <div class="content">
+                                <div class="sub-title-content">{{$teamMember?->position}}</div>
+                                <h3>
+                                    <a href="{{ route('our-board', ['section' => $teamMember?->sort ])}}">{{$teamMember?->name}}</a>
+                                </h3>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
 
 

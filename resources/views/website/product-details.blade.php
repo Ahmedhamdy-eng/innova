@@ -29,19 +29,19 @@
                 </div>
                 <div class="col-lg-7  wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="journey-heading">
-                        <div class="tf-sub-title">{{$product->category?->name}}</div>
-                        <h2 class="tf-title"><span class="text-color-3 style-title">{{$product->name}}</span></h2>
+                        <div class="tf-sub-title">{{$product?->category?->name}}</div>
+                        <h2 class="tf-title"><span class="text-color-3 style-title">{{$product?->name}}</span></h2>
                     </div>
                     <p class="text-style">
-                        {{$product->description}}
+                        {{$product?->description}}
                     </p>
 
                     <div class="service-content mt-25">
 
                         @if(request('type') == Product::HEALTHCARE_PROFESSIONAL)
-                            {!! $product->healthcare_professional_description!!}
+                            {!! $product?->healthcare_professional_description!!}
                         @else
-                            {!! $product->public_member_description!!}
+                            {!! $product?->public_member_description!!}
                         @endif
                     </div>
                     <br>

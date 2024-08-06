@@ -36,22 +36,22 @@
                                  data-wow-duration="800ms">Cairo, <span class="text-color-3">Egypt</span></div>
                             <div class="row wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms">
                                 <div class="col-md-12">
-                                    <p><span class="text-color-3">{{$contact->description}}</span></p>
-                                    <p>{{$contact->address . $contact->country . $contact->city}}</p>
+                                    <p><span class="text-color-3">{{$contact?->description}}</span></p>
+                                    <p>{{$contact?->address . $contact?->country . $contact?->city}}</p>
                                 </div>
                             </div>
                             <div class="row wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                                 <div class="col-md-12">
                                     <p class="link-style-3"><i class="fa fa-phone" aria-hidden="true">
-                                        {{$contact->phone}}</i></p>
-                                    <p class="link-style-3"><i class="fa fa-fax" aria-hidden="true"> {{ $contact->fax }}</i>
+                                        {{$contact?->phone}}</i></p>
+                                    <p class="link-style-3"><i class="fa fa-fax" aria-hidden="true"> {{ $contact?->fax }}</i>
                                     </p>
                                 </div>
                             </div>
                             <div class="row wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                                 <div class="col-md-12">
                                     <p class="link-style-3"><i class="fa fa-envelope" aria-hidden="true">
-                                            {{ $contact->email }}</i></p>
+                                            {{ $contact?->email }}</i></p>
                                 </div>
                             </div>
                         </div>

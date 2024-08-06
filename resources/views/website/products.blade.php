@@ -9,9 +9,9 @@
             <div class="row">
                 <div class="zup col-lg-12 col-md-12">
                     <div class="breadcrumbs">
-                        <h1>{{ $therapeutic_area->name }}</h1>
+                        <h1>{{ $therapeutic_area?->name }}</h1>
                         <div class="breadcrumb-trail link-style-2">
-                            <a class="home" href="{{route('home')}}">Home Page</a><span>{{ $therapeutic_area->name }}</span>
+                            <a class="home" href="{{route('home')}}">Home Page</a><span>{{ $therapeutic_area?->name }}</span>
                         </div>
                     </div>
                 </div>
@@ -33,8 +33,8 @@
                                 </div>
                             </div>
                             <div class="content">
-                                <h3 class="title-item">{{$product->name}}</h3>
-                                <p>{{$product->description}}
+                                <h3 class="title-item">{{$product?->name}}</h3>
+                                <p>{{$product?->description}}
                                 <h5>To access the appropriate content please confirm if you are </h5>
                                 </p>
 
@@ -42,13 +42,13 @@
 
                                     <div class="row">
                                         <div class="col-lg-5">
-                                            <a href="{{route("product.show",['id'=>$product->id, 'type' => "healthcare-professional"])}}">a healthcare professional</a>
+                                            <a href="{{route("product.show",['id'=>$product?->id, 'type' => "healthcare-professional"])}}">a healthcare professional</a>
                                         </div>
                                         <div class="col-lg-2">
                                             <p> or </p>
                                         </div>
                                         <div class="col-lg-5">
-                                            <a href="{{route("product.show",['id'=>$product->id, 'type' => "member-of-the-public"])}}">a member of the public</a>
+                                            <a href="{{route("product.show",['id'=>$product?->id, 'type' => "member-of-the-public"])}}">a member of the public</a>
                                         </div>
                                     </div>
                                 </div>
@@ -86,12 +86,12 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="{{ route('therapeutic-area.show',['id' => $therapeutic_area->id, 'category'=> "all"]) }}">All</a>
+                                        <a href="{{ route('therapeutic-area.show',['id' => $therapeutic_area?->id, 'category'=> "all"]) }}">All</a>
                                     </li>
 
                                     @foreach($categories as $category)
                                     <li>
-                                        <a href="{{ route('therapeutic-area.show',['id' => $therapeutic_area->id, 'category'=> $category->id]) }}">{{$category->name}}</a>
+                                        <a href="{{ route('therapeutic-area.show',['id' => $therapeutic_area?->id, 'category'=> $category?->id]) }}">{{$category?->name}}</a>
                                     </li>
                                     @endforeach
 

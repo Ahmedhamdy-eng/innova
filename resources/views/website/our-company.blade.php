@@ -50,10 +50,10 @@
 
                 <div class="col-lg-8 col-md-8  wow fadeInRight" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="trusted-heading">
-                        <h2 class="tf-title"><span class="text-color-3 style-title">{{$vision->name}}</span></h2>
+                        <h2 class="tf-title"><span class="text-color-3 style-title">{{$vision?->name}}</span></h2>
                     </div>
                     <!-- <h3 class="text-color-3"></h3> -->
-                    <p><b>{{$vision->description}}</b></p>
+                    <p><b>{{$vision?->description}}</b></p>
                 </div>
 
             </div>
@@ -68,10 +68,10 @@
 
                 <div class="col-lg-8 col-md-8  wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="trusted-heading">
-                        <h2 class="tf-title"><span class="text-color-3 style-title">{{ $mission->name }}</span></h2>
+                        <h2 class="tf-title"><span class="text-color-3 style-title">{{ $mission?->name }}</span></h2>
                     </div>
                     <!-- <h3 class="text-color-3"></h3> -->
-                    <p><b>{{$mission->description}}</b></p>
+                    <p><b>{{$mission?->description}}</b></p>
                 </div>
 
                 <div class="col-lg-4 col-md-4  wow fadeInDown" data-wow-delay="100ms" data-wow-duration="800ms">
@@ -105,10 +105,10 @@
                 <div class="col-lg-8 col-md-8  wow fadeInRight" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="trusted-heading">
                         <h2 class="tf-title"><span
-                                class="text-color-3 style-title">{{ $companyStrategy->name }}</span></h2>
+                                class="text-color-3 style-title">{{ $companyStrategy?->name }}</span></h2>
                     </div>
                     <!-- <h3 class="text-color-3"></h3> -->
-                    <p><b>{{$companyStrategy->description}}</b></p>
+                    <p><b>{{$companyStrategy?->description}}</b></p>
                 </div>
 
             </div>
@@ -124,10 +124,10 @@
 
                 <div class="col-lg-8 col-md-8  wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="trusted-heading">
-                        <h2 class="tf-title"><span class="text-color-3 style-title">{{$ourStrategicStrength->name}}</span></h2>
+                        <h2 class="tf-title"><span class="text-color-3 style-title">{{$ourStrategicStrength?->name}}</span></h2>
                     </div>
                     <!-- <h3 class="text-color-3"></h3> -->
-                    <p><b>{{$ourStrategicStrength->description}}</b></p>
+                    <p><b>{{$ourStrategicStrength?->description}}</b></p>
                 </div>
 
                 <div class="col-lg-4 col-md-4  wow fadeInDown" data-wow-delay="100ms" data-wow-duration="800ms">
@@ -159,10 +159,10 @@
 
                 <div class="col-lg-8 col-md-8  wow fadeInRight" data-wow-delay="100ms" data-wow-duration="800ms">
                     <div class="trusted-heading">
-                        <h2 class="tf-title"><span class="text-color-3 style-title">{{ $ourValue->name }}</span></h2>
+                        <h2 class="tf-title"><span class="text-color-3 style-title">{{ $ourValue?->name }}</span></h2>
                     </div>
                     <!-- <h3 class="text-color-3"></h3> -->
-                    <p><b>{{$ourValue->description}}</b></p>
+                    <p><b>{{$ourValue?->description}}</b></p>
                 </div>
 
             </div>

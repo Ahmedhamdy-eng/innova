@@ -23,7 +23,7 @@
 
     @foreach($teamMembers as $index => $teamMember)
         @if($index % 2 == 0)
-            <section class="tf-space flat-trusted" id="{{$teamMember->sort}}">
+            <section class="tf-space flat-trusted" id="{{$teamMember?->sort}}">
 
                 <div class="container">
                     <div class="row">
@@ -40,11 +40,11 @@
                              data-wow-duration="800ms">
                             <div class="trusted-heading">
                                 <h2 class="tf-title"><span
-                                        class="text-color-3 style-title">{{ $teamMember->name }}</span>
+                                        class="text-color-3 style-title">{{ $teamMember?->name }}</span>
                                 </h2>
                             </div>
-                            <h3 class="text-color-3">{{$teamMember->position}}</h3>
-                            <p>{{ $teamMember->description}}</p>
+                            <h3 class="text-color-3">{{$teamMember?->position}}</h3>
+                            <p>{{ $teamMember?->description}}</p>
                         </div>
 
                     </div>
@@ -53,7 +53,7 @@
             </section>
         @else
 
-            <section class="tf-space flat-trusted" id="{{$teamMember->sort}}">
+            <section class="tf-space flat-trusted" id="{{$teamMember?->sort}}">
 
                 <div class="container">
                     <div class="row">
@@ -61,11 +61,11 @@
                         <div class="col-lg-8 col-md-8  wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms">
                             <div class="trusted-heading">
                                 <h2 class="tf-title"><span
-                                        class="text-color-3 style-title">{{ $teamMember->name }}</span>
+                                        class="text-color-3 style-title">{{ $teamMember?->name }}</span>
                                 </h2>
                             </div>
-                            <h3 class="text-color-3">{{$teamMember->position}}</h3>
-                            <p>{{ $teamMember->description}}</p>
+                            <h3 class="text-color-3">{{$teamMember?->position}}</h3>
+                            <p>{{ $teamMember?->description}}</p>
                         </div>
 
                         <div class="col-lg-4 col-md-4  wow fadeInDown" data-wow-delay="100ms" data-wow-duration="800ms">

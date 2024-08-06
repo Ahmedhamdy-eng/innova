@@ -30,26 +30,26 @@
                             <div class="box">
                                 <div class="heading">
                                     <h3 class="wow lightSpeedIn" data-wow-delay="100ms"
-                                        data-wow-duration="800ms">{{$report->subject_en}}</h3>
+                                        data-wow-duration="800ms">{{$report?->subject_en}}</h3>
                                     <div class="row wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms">
                                         <div class="col-md-12">
-                                            <p><span>{{$report->description_en}}</span></p>
+                                            <p><span>{{$report?->description_en}}</span></p>
                                         </div>
                                     </div>
-                                    @if($report->phone)
+                                    @if($report?->phone)
                                         <div class="row wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                                             <div class="col-md-12">
                                                 <p class="link-style-3"><i class="fa fa-phone" aria-hidden="true">
-                                                        {{$report->phone}}</i></p>
+                                                        {{$report?->phone}}</i></p>
                                             </div>
                                         </div>
                                     @endif
 
                                     <div class="row wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                                         <div class="col-md-12">
-                                            <a href="mailto:{{$report->email}}"><p class="link-style-3"><i
+                                            <a href="mailto:{{$report?->email}}"><p class="link-style-3"><i
                                                         class="fa fa-envelope" aria-hidden="true">
-                                                        {{$report->email}}</i></p></a>
+                                                        {{$report?->email}}</i></p></a>
                                         </div>
                                     </div>
 
@@ -69,27 +69,27 @@
                             <div class="box">
                                 <div class="heading">
                                     <h3 class="wow lightSpeedIn" data-wow-delay="100ms" data-wow-duration="800ms"
-                                        style="direction:rtl;">{{$report->subject_ar}}</h3>
+                                        style="direction:rtl;">{{$report?->subject_ar}}</h3>
                                     <div class="row wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="800ms"
                                          style="direction:rtl;">
                                         <div class="col-md-12">
-                                            <p><span>{{$report->description_ar}}</span></p>
+                                            <p><span>{{$report?->description_ar}}</span></p>
                                         </div>
                                     </div>
-                                    @if($report->phone)
+                                    @if($report?->phone)
                                         <div class="row wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                                             <div class="col-md-12">
                                                 <p class="link-style-3"><i class="fa fa-phone" aria-hidden="true">
-                                                        {{$report->phone}}</i></p>
+                                                        {{$report?->phone}}</i></p>
                                             </div>
                                         </div>
                                     @endif
 
                                     <div class="row wow fadeInUp" data-wow-delay="100ms" data-wow-duration="800ms">
                                         <div class="col-md-12">
-                                            <a href="mailto:{{$report->email}}"><p class="link-style-3"><i
+                                            <a href="mailto:{{$report?->email}}"><p class="link-style-3"><i
                                                         class="fa fa-envelope" aria-hidden="true">
-                                                        {{$report->email}}</i></p></a>
+                                                        {{$report?->email}}</i></p></a>
                                         </div>
                                     </div>
 

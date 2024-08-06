@@ -29,10 +29,10 @@
                         <div id="respond" class="respond-comment">
 
                             <h1 class="title-comment wow lightSpeedIn" data-wow-delay="100ms"
-                                data-wow-duration="800ms"><span class="text-color-3">{{$career->title}}</span>
+                                data-wow-duration="800ms"><span class="text-color-3">{{$career?->title}}</span>
                             </h1>
                             <p class="text wow fadeInRight" data-wow-delay="100ms"
-                               data-wow-duration="800ms">{{ $career->description }}</p>
+                               data-wow-duration="800ms">{{ $career?->description }}</p>
 
                         </div>
                     </div>

@@ -22,8 +22,8 @@
                                 </div>
                                 <div class="content">
                                     <div class="heading">
-                                        <h1>{{$slider->title}}</h1>
-                                        <p>{{$slider->content}}
+                                        <h1>{{$slider?->title}}</h1>
+                                        <p>{{$slider?->content}}
                                         </p>
                                     </div>
                                     <!-- <div class="button-slider">
@@ -60,10 +60,10 @@
                 <div class="col-lg-6 col-md-7 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="800ms">
                     <div class="trusted-heading-without-marge wow fadeInUp" data-wow-delay="0ms"
                          data-wow-duration="1100ms">
-                        <h2 class="tf-title"> {{ $partner->name }}  <span class="text-color-3 style-title"> </span></h2>
+                        <h2 class="tf-title"> {{ $partner?->name }}  <span class="text-color-3 style-title"> </span></h2>
                     </div>
                     <!-- <h3 class="text-color-3">At Innova,</h3> -->
-                    <p>{{ $partner->description}}
+                    <p>{{ $partner?->description}}
                     </p>
                     <div class="img-title50 wow fadeInDown" data-wow-delay="100ms" data-wow-duration="1100ms"
                          style="padding-top: 10px;">
@@ -101,7 +101,7 @@
                                                      style="height: 85%;">
                                             </a>
                                             <div class="content-white">
-                                                <h3>{{ $product->name }}</h3>
+                                                <h3>{{ $product?->name }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -155,8 +155,8 @@
                             <img src="{{$teamMember?->getFirstMediaUrl('member')}}" alt="images">
                         </div>
                         <div class="content">
-                            <div class="sub-title-content">{{$teamMember->position}}</div>
-                            <h3><a href="{{ route('our-board', ['section' => $teamMember->sort ])}}">{{$teamMember->name}}</a></h3>
+                            <div class="sub-title-content">{{$teamMember?->position}}</div>
+                            <h3><a href="{{ route('our-board', ['section' => $teamMember?->sort ])}}">{{$teamMember?->name}}</a></h3>
                         </div>
                     </div>
                 </div>

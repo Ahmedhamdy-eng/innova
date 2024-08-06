@@ -135,7 +135,7 @@
                                     <img src="{{$blog?->getFirstMediaUrl('attachment')}}" alt="images">
                                 </div>
                                 <div class="content">
-                                    <h3 class="title-item"><a href="blog-details.html">{{$blog?->title}}</a></h3>
+                                    <h3 class="title-item"><a href="{{(route("blog.show",$blog->id))}}">{{$blog?->title}}</a></h3>
                                     <p>{{$blog?->content}}</p>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@
                                         Your browser does not support the video tag.
                                     </video>
                                     <div class="content">
-                                        <h3 class="title-item"><a href="blog-details.html">{{$blog?->title}}</a></h3>
+                                        <h3 class="title-item"><a href="{{(route("blog.show",$blog->id))}}">{{$blog?->title}}</a></h3>
                                         <p>{{ mb_strimwidth($blog?->content,0, 50, "...")}}</p>
                                     </div>
                                 </div>

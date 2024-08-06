@@ -137,3 +137,9 @@ Route::get('/product/{id}', function ($id) {
 
 
 })->name('product.show');
+
+Route::get('/blog/{id}', function ($id) {
+    $blog = Blog::query()->where('id', $id)->first();
+    return view('website.blog-details', ['blog' => $blog]);
+
+})->name('blog.show');

@@ -16,6 +16,7 @@ use App\Models\Pharmacovigilance;
 use App\Models\Product;
 use App\Models\Suggestion;
 use App\Models\Vision;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -93,6 +94,9 @@ Route::post('/career', function (CareerRequest $request) {
     $career = Career::query()->create($request->except('attachment'));
 
     $career->refresh()->addMedia($request->file('attachment'))->toMediaCollection('attachment');
+    $user = \App\Models\User::query()->first();
+    Mail::to($user->email)->send(new \App\Mail\SendCareerMail());
+
 
     alert()->success('Your Cv Sent Successfully', 'we will contact you soon.')->showConfirmButton('Confirm', '#3085d6');
     return redirect()->back();
@@ -108,7 +112,6 @@ Route::get('/contact-us', function () {
 
 Route::post('/contact-us', function () {
     Suggestion::query()->create(request()->all());
-
     alert()->success('Your Message Sent Successfully', 'we will contact you soon.')->showConfirmButton('Confirm', '#3085d6');
 
     return redirect()->back();
@@ -133,6 +136,9 @@ Route::get('/therapeutic-area/{id}', function ($id) {
 
 Route::get('/product/{id}', function ($id) {
     $product = Product::query()->where('id', $id)->first();
+    $type = str_replace('-', ' ', request('type'));
+    alert()->warning('Please confirm that you want to know the product details as a '. $type)->showConfirmButton('Confirm', '#3085d6');
+
     return view('website.product-details', ['product' => $product]);
 
 

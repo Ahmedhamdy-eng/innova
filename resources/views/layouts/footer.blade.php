@@ -7,17 +7,14 @@
                     <h4 class="text-color-1">Innova Healthcare LLC</h4>
                 </div>
                 <ul class="widget-list-media">
-                    <li>
-                        <a href="https://www.facebook.com/profile.php?id=61556364582864" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <!--<li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-            </li>-->
-                    <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </li>
+                    @foreach($socialMediaInformations as $socialMediaInformation)
+                        <li>
+                            <a href="{{$socialMediaInformation->link}}" target="_blank">
+                                <i class="fab fa-{{$socialMediaInformation->name}}"></i>
+                            </a>
+                        </li>
+                    @endforeach
+
                 </ul>
             </div>
             <div class="col-lg-6 col-md-6">

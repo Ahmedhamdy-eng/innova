@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\SocialMedia;
 use App\Models\TherapeuticArea;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $therapeuticAreas = TherapeuticArea::query()->get();
-        \View::share('therapeuticAreas', $therapeuticAreas);
+        $socialMediaInformations = SocialMedia::query()->active()->get();
+        \View::share(['therapeuticAreas'=> $therapeuticAreas, 'socialMediaInformations' => $socialMediaInformations]);
     }
 }

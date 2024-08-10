@@ -23,14 +23,14 @@ class CareerRequest extends FormRequest
     {
 
         return [
-            "name"=> ["required", "max:2"],
-            "email"=> ["required", 'email'],
-            "address"=> ["required", 'max:255'],
-            "state"=> ["required", 'max:255'],
-            "city"=> ["required", 'max:255'],
-            "phone"=> ["required", 'max:255'],
-            "job_vacancy"=> ["required", 'max:255'],
-            "attachment"=> ["required"],
+//            "name"=> ["required", "max:2"],
+//            "email"=> ["required", 'email'],
+//            "address"=> ["required", 'max:255'],
+//            "state"=> ["required", 'max:255'],
+//            "city"=> ["required", 'max:255'],
+//            "phone"=> ["required", 'max:255'],
+//            "job_vacancy"=> ["required", 'max:255'],
+//            "attachment"=> ["required"],
         ];
     }
 }

@@ -11,7 +11,8 @@
                     <div class="breadcrumbs">
                         <h1>{{ $therapeutic_area?->name }}</h1>
                         <div class="breadcrumb-trail link-style-2">
-                            <a class="home" href="{{route('home')}}">Home Page</a><span>{{ $therapeutic_area?->name }}</span>
+                            <a class="home" href="{{route('home')}}">Home
+                                Page</a><span>{{ $therapeutic_area?->name }}</span>
                         </div>
                     </div>
                 </div>
@@ -25,36 +26,46 @@
             <div class="row">
                 <div id="loadData" class="col-lg-8 col-md-12">
                     @foreach($products as $product)
-                    <div class="flat-blog-grid wow fadeInDown" data-wow-delay="100ms" data-wow-duration="800ms">
-                        <div class="grid-post style-post">
-                            <div class="img-box">
-                                <div class="media">
-                                    <img src="{{$product?->getFirstMediaUrl('image')}}" alt="images">
+                        <div class="flat-blog-grid wow fadeInDown" data-wow-delay="100ms" data-wow-duration="800ms">
+                            <div class="grid-post style-post">
+                                <div class="img-box">
+                                    <div class="media">
+                                        <img src="{{$product?->getFirstMediaUrl('image')}}" alt="images">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="content">
-                                <h3 class="title-item">{{$product?->name}}</h3>
-                                <p>{{$product?->description}}
-                                <h5>To access the appropriate content please confirm if you are </h5>
-                                </p>
+                                <div class="content">
+                                    <h3 class="title-item">{{$product?->name}}</h3>
+                                    <p>{{$product?->description}}
+                                    <h5>To access the appropriate content please confirm if you are </h5>
+                                    </p>
 
-                                <div class="read-more link-style-3">
+                                    <div class="read-more link-style-3">
 
-                                    <div class="row">
-                                        <div class="col-lg-5">
-                                            <a href="{{route("product.show",['id'=>$product?->id, 'type' => "healthcare-professional"])}}">a healthcare professional</a>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <p> or </p>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <a href="{{route("product.show",['id'=>$product?->id, 'type' => "member-of-the-public"])}}">a member of the public</a>
+                                        <div class="row">
+                                            @if($product?->healthcare_professional_description)
+                                                <div class="col-lg-5">
+                                                    <a href="{{route("product.show",['id'=>$product?->id, 'type' => "healthcare-professional"])}}">a
+                                                        healthcare professional</a>
+                                                </div>
+                                            @endif
+                                            @if($product?->healthcare_professional_description && $product?->public_member_description)
+
+                                                <div class="col-lg-2">
+                                                    <p> or </p>
+                                                </div>
+
+                                            @endif
+                                            @if($product?->public_member_description)
+                                                <div class="col-lg-5">
+                                                    <a href="{{route("product.show",['id'=>$product?->id, 'type' => "member-of-the-public"])}}">a
+                                                        member of the public</a>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
 
 
@@ -90,9 +101,9 @@
                                     </li>
 
                                     @foreach($categories as $category)
-                                    <li>
-                                        <a href="{{ route('therapeutic-area.show',['id' => $therapeutic_area?->id, 'category'=> $category?->id]) }}">{{$category?->name}}</a>
-                                    </li>
+                                        <li>
+                                            <a href="{{ route('therapeutic-area.show',['id' => $therapeutic_area?->id, 'category'=> $category?->id]) }}">{{$category?->name}}</a>
+                                        </li>
                                     @endforeach
 
                                 </ul>

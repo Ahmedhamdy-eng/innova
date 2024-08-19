@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->text('public_member_description');
-            $table->text('healthcare_professional_description');
+            $table->text('public_member_description')->nullable();
+            $table->text('healthcare_professional_description')->nullable();
             $table->foreignIdFor(\App\Models\Category::class, 'category_id');
             $table->foreignIdFor(\App\Models\TherapeuticArea::class, 'therapeutic_area_id');
             $table->integer('sort');

@@ -39,11 +39,9 @@ class ProductResource extends Resource
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('healthcare_professional_description')
-                    ->required()
                     ->columnSpanFull(),
 
                 Forms\Components\RichEditor::make('public_member_description')
-                    ->required()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('sort')
                     ->required()

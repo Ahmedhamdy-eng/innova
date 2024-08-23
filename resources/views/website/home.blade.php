@@ -116,7 +116,6 @@
         </div>
     </section>
 
-
     <section class="tf-space flat-blog-grid home03">
         <div class="container">
             <div class="row">
@@ -125,42 +124,58 @@
                         <h2 class="tf-title">Company <span class="text-color-3 style-title">Blog</span></h2>
                     </div>
                 </div>
-                @foreach($blogs as $index => $blog)
-                    @if($blog->type == "news")
-                        <div class="col-lg-4 col-md-4">
-                            <div class="grid-post">
-                                <div class="media height-150 wow fadeInUp" data-wow-delay="0ms"
-                                     data-wow-duration="1500ms"
-                                     style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                                    <img src="{{$blog?->getFirstMediaUrl('attachment')}}" alt="images">
-                                </div>
-                                <div class="content">
-                                    <h3 class="title-item"><a href="{{(route("blog.show",$blog->id))}}">{{$blog?->title}}</a></h3>
-                                    <p>{{$blog?->content}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
 
-                    @if($blog->type == "video")
-
-                            <div class="col-lg-4 col-md-4">
-                                <div class="grid-post">
-                                    <video controls>
-                                        <source src="{{$blog?->getFirstMediaUrl('attachment')}}" type="{{ optional(optional($blog->getMedia("attachment"))[0])->mime_type}}">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <div class="content">
-                                        <h3 class="title-item"><a href="{{(route("blog.show",$blog->id))}}">{{$blog?->title}}</a></h3>
-                                        <p>{{ mb_strimwidth($blog?->content,0, 50, "...")}}</p>
+                <div class="col-lg-12">
+                    <div class="swiper-container carousel-4">
+                        <div class="swiper-wrapper">
+                            @foreach($blogs as $index => $blog)
+                                @if($blog->type == "news")
+                                    <div class="swiper-slide">
+                                        <div class="grid-post">
+                                            <div class="media height-150 wow fadeInUp" data-wow-delay="0ms"
+                                                 data-wow-duration="1500ms"
+                                                 style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                                                <img src="{{$blog?->getFirstMediaUrl('attachment')}}" alt="images">
+                                            </div>
+                                            <div class="content">
+                                                <h3 class="title-item">
+                                                    <a href="{{(route("blog.show",$blog->id))}}">{{$blog?->title}}</a>
+                                                </h3>
+                                                <p>{{ mb_strimwidth($blog?->content,0, 50, "...")}}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        @endif
-                @endforeach
+                                @endif
+
+                                @if($blog->type == "video")
+                                    <div class="swiper-slide">
+                                        <div class="grid-post">
+                                            <video controls>
+                                                <source src="{{$blog?->getFirstMediaUrl('attachment')}}" type="{{ optional(optional($blog->getMedia("attachment"))[0])->mime_type}}">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div class="content">
+                                                <h3 class="title-item">
+                                                    <a href="{{(route("blog.show",$blog->id))}}">{{$blog?->title}}</a>
+                                                </h3>
+                                                <p>{{ mb_strimwidth($blog?->content,0, 50, "...")}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                        <!-- Add Pagination if needed -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Navigation if needed -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
 
 
     <!-- flat servece -->

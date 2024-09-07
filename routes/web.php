@@ -89,18 +89,7 @@ Route::get('/career', function () {
 })->name('career');
 
 
-Route::post('/career', function (CareerRequest $request) {
-
-    $career = Career::query()->create($request->except('attachment'));
-
-    $career->refresh()->addMedia($request->file('attachment'))->toMediaCollection('attachment');
-    $user = \App\Models\User::query()->first();
-    Mail::to($user->email)->send(new \App\Mail\SendCareerMail());
-
-
-    alert()->success('Your Cv Sent Successfully', 'we will contact you soon.')->showConfirmButton('Confirm', '#3085d6');
-    return redirect()->back();
-})->name('career.store');
+Route::post('/career', [\App\Http\Controllers\CareerController::class, 'store'])->name('career.store');
 
 
 Route::get('/contact-us', function () {

@@ -34,14 +34,10 @@ class CareerController extends Controller
             <p><strong>City:</strong> {$request['city']}</p>
             <p><strong>Phone:</strong> {$request['phone']}</p>
             <p><strong>Job Vacancy:</strong> {$request['job_vacancy']}</p>
-            <p>Please find the attachment included.</p>
             <p>Best Regards,<br>Innova Healthcare Website</p>
         ";
 
-        // Attachment Handling (assuming a single attachment)
-        $attachmentPath = $request->file('attachment')->getRealPath();
-        $attachmentContent = base64_encode(file_get_contents($attachmentPath));
-        $attachmentName = $request->file('attachment')->getClientOriginalName();
+
 
         $url = "https://api.sendgrid.com/v3/mail/send";
         $headers = [
@@ -66,15 +62,7 @@ class CareerController extends Controller
                     "value" => $htmlContent
                 ]
             ],
-            // Adding the attachment
-            "attachments" => [
-                [
-                    "content" => $attachmentContent,
-                    "type" => $request->file('attachment')->getMimeType(),
-                    "filename" => $attachmentName,
-                    "disposition" => "attachment"
-                ]
-            ]
+
         ];
         // Send the email via SendGrid API
         $response = Http::post($url, [

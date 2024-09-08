@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CareerRequest extends FormRequest
+class ContactUsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,14 +23,10 @@ class CareerRequest extends FormRequest
     {
 
         return [
-            "name"=> ["required", "max:100"],
+            "full_name"=> ["required", "max:200"],
             "email"=> ["required", 'email'],
-            "address"=> ["required", 'max:255'],
-            "state"=> ["required", 'max:255'],
-            "city"=> ["required", 'max:255'],
-            "phone"=> ["required", 'max:255'],
-            "job_vacancy"=> ["required", 'max:255'],
-            "attachment"=> ["required"],
+            "phone"=> ["required", 'max:150'],
+            "message"=> ["required", 'max:999', 'string'],
         ];
     }
 }

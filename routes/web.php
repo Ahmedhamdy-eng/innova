@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactUsController;
 use App\Http\Requests\CareerRequest;
 use App\Models\Blog;
 use App\Models\Career;
@@ -99,13 +100,7 @@ Route::get('/contact-us', function () {
 })->name('suggestion');
 
 
-Route::post('/contact-us', function () {
-    Suggestion::query()->create(request()->all());
-    alert()->success('Your Message Sent Successfully', 'we will contact you soon.')->showConfirmButton('Confirm', '#3085d6');
-
-    return redirect()->back();
-
-})->name('suggestion.store');
+Route::post('/contact-us', [ContactUsController::class, 'store'])->name('suggestion.store');
 
 
 Route::get('/therapeutic-area/{id}', function ($id) {

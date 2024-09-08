@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CareerRequest;
-use App\Models\Career;
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactUsRequest;
+use App\Models\Suggestion;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Http;
 
-class CareerController extends Controller
+class ContactUsController extends Controller
 {
-    public function store(CareerRequest $request)
+    public function store(ContactUsRequest $request): RedirectResponse
     {
-        $career = Career::query()->create($request->except('attachment'));
-
-        $career->refresh()->addMedia($request->file('attachment'))->toMediaCollection('attachment');
-
+        Suggestion::query()->create(request()->all());
+        alert()->success('Your Message Sent Successfully', 'we will contact you soon.')->showConfirmButton('Confirm', '#3085d6');
         $this->sendEmail($request);
-        alert()->success('Your Cv Sent Successfully', 'we will contact you soon.')->showConfirmButton('Confirm', '#3085d6');
         return redirect()->back();
 
 
@@ -26,7 +23,7 @@ class CareerController extends Controller
     {
         $url = "https://api.sendgrid.com/v3/mail/send";
         $headers = [
-            'Authorization' => 'Bearer '.env("SEND_GRID_TOKEN"),
+            'Authorization' => 'Bearer ' . env("SEND_GRID_TOKEN"),
             'Content-Type' => 'application/json',
         ];
 
@@ -43,17 +40,14 @@ class CareerController extends Controller
                         ],
                     ],
                     'dynamic_template_data' => [
-                        'name' => $request->input('name'),
+                        'name' => $request->input('full_name'),
                         'email' => $request->input('email'),
-                        'address' => $request->input('address'),
-                        'state' => $request->input('state'),
-                        'city' => $request->input('city'),
                         'phone' => $request->input('phone'),
-                        'job_vacancy' => $request->input('job_vacancy'),
+                        'message' => $request->input('message'),
                     ],
                 ],
             ],
-            'template_id' => env('SENDGRID_CAREER_REQUEST_TEMPLATE_ID'), // Your dynamic template ID from the .env file
+            'template_id' => env('SENDGRID_CONTACT_REQUEST_TEMPLATE_ID'), // Your dynamic template ID from the .env file
 
         ];
         // Send the email via SendGrid API
